@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_example_rtmp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+      <EditText
+          android:id="@+id/editText"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:hint="输入播放地址"
+          android:textColor="@color/appColor"
+          android:text="http://192.168.2.101:7001/live/movie.flv" />
+
+      <EditText
+          android:id="@+id/et_rtp_url"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="textUri"
+
+          android:text="rtmp://192.168.2.101:1936/live/test"
+          android:textColor="@color/appColor"
+          android:textColorHint="@color/appColor" />
+
+      <TextView
+          android:id="@+id/tv_info"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="10dp"
+          android:layout_marginTop="10dp"
+          android:clickable="true"
+          android:textColor="@color/appColor"
+          android:text="playinfo"
+          android:textSize="16sp" />
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              android:gravity="center">
+
+            <com.pedro.rtplibrary.view.OpenGlView
+                android:id="@+id/surfaceView"
+
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+
+                app:AAEnabled="false"
+                app:isFlipHorizontal="false"
+                app:isFlipVertical="false"
+                app:keepAspectRatio="false"
+                app:numFilters="1" />
+          </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+          <com.upyun.upplayer.widget.UpVideoView
+              android:id="@+id/uvv_vido"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" />
+
+          <TableLayout
+              android:id="@+id/hud_view"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="right|center_vertical"
+              android:background="#77000000"
+              android:padding="8dp"
+              android:visibility="gone" />
+        </FrameLayout>
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/lly_button"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_change"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="toggle"
+            android:text="on/off" />
+
+        <Button
+            android:id="@+id/bt_refresh"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="refresh"
+            android:text="refresh" />
+
+        <Button
+            android:id="@+id/bt_full"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="fullScreen"
+            android:text="fullScreen" />
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="20dp"
+          android:layout_marginLeft="20dp"
+          android:layout_marginTop="20dp"
+          android:layout_marginEnd="20dp"
+          android:layout_marginRight="20dp"
+          android:layout_marginBottom="20dp"
+          android:gravity="center"
+          android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/b_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="@string/start_record" />
+
+        <Button
+            android:id="@+id/b_start_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="@string/start_button" />
+
+        <Button
+            android:id="@+id/switch_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/switch_camera_button" />
+
+      </LinearLayout>
+    </LinearLayout>
+
+  </LinearLayout>
+
+
+</RelativeLayout>
