@@ -1,8 +1,8 @@
 # rtmp_player_publish
 
 ##參考
-https://github.com/pedroSG94/rtmp-rtsp-stream-client-java
 
+https://github.com/pedroSG94/rtmp-rtsp-stream-client-java
 
 https://github.com/qingkouwei/oarplayer
 
