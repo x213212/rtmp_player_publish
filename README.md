@@ -9,7 +9,7 @@ https://github.com/qingkouwei/oarplayer
 https://github.com/gwuhaolin/livego
 
 ## ffmpeg example 示範
-address1 adobe_media_server
+address1 media_server
 
 address2 livego
 
