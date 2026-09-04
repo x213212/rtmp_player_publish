@@ -1,20 +1,33 @@
 # rtmp_player_publish
 
-##參考
+An Android app that both **publishes** and **plays** RTMP streams: capture from
+the device camera and push to a server, or pull a stream and render it.
 
-https://github.com/pedroSG94/rtmp-rtsp-stream-client-java
+Built for a surgical video-streaming and conferencing system, where the same
+handset needs to send its own feed and watch someone else's.
 
-https://github.com/qingkouwei/oarplayer
+## Build
 
-https://github.com/gwuhaolin/livego
+```bash
+./gradlew assembleDebug
+```
 
-## ffmpeg example 示範
-address1 media_server
+Install with `./gradlew installDebug`, or open the project in Android Studio.
 
-address2 livego
+## Layout
 
+The RTMP protocol layer is implemented in Java rather than wrapped from native
+code — `AmfData`, `AmfArray`, `AmfBoolean` and friends encode AMF0, and
+`AacPacket`, `Acknowledgement`, `Abort` implement the RTMP chunk and control
+messages. `AbstractMediaPlayer` and `AdapterBitrateParser` sit on the playback
+side, the latter adapting bitrate to the measured link.
 
-ffmpeg -re -i rtmp:// address1 -r 60 -vcodec libx264 -s 640x480 -preset ultrafast -tune  zerolatency  -filter_complex aresample=44100  -bufsize 1000 -c:a aac -b:a:0 128k -f flv rtmp:// address2
+## Derived from
 
+- [pedroSG94/rtmp-rtsp-stream-client-java](https://github.com/pedroSG94/rtmp-rtsp-stream-client-java)
+- [qingkouwei/oarplayer](https://github.com/qingkouwei/oarplayer)
+- [gwuhaolin/livego](https://github.com/gwuhaolin/livego) (server side)
 
-![alt text](https://i.imgur.com/WahFcc2.png)
+## License
+
+Apache-2.0, inherited from the upstream projects above. See [LICENSE.txt](LICENSE.txt).
